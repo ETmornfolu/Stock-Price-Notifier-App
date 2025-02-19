@@ -2,6 +2,9 @@ import requests
 from smtplib import *
 from math import floor
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
@@ -9,11 +12,11 @@ COMPANY_NAME = "Tesla Inc"
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
-API_KEY = "GX07FK8Q02082Q46"
-NEWS_API_KEY = "86da72a39afa4b9cb0df3d5b48811d82"
+API_KEY = os.getenv('API_KEY')
+NEWS_API_KEY = os.getenv('NEWS_API_KEY')
 
-MY_EMAIL = "emmanuelmoronfolu6@gmail.com"
-PASSWORD = "cuophgaoasoiabpz"
+MY_EMAIL = os.getenv('MY_EMAIL')
+PASSWORD = os.getenv('PASSWORD')
 
 stock_market_parameters = {
     "function": "TIME_SERIES_DAILY",
